@@ -4,6 +4,8 @@ This demo runs with a statically compiled Go application using the Kafka SDK.
 
 ## Running locally
 
+Use this segment to run your Go code locally with a sidecar docker Kafka.
+
 Start Kafka:
 
 ```
@@ -19,6 +21,7 @@ docker exec broker kafka-topics --bootstrap-server broker:9092 --create --topic 
 Start the consumer:
 
 ```
+go mod tidy
 go run .
 ```
 
@@ -30,14 +33,14 @@ docker exec --interactive --tty broker kafka-console-producer --bootstrap-server
 
 ## Running on Docker
 
-Run your Go consumer with docker:
+Start up the complete environment:
 
 ```
 docker-compose -f docker-compose-full.yaml build
 docker-compose -f docker-compose-full.yaml up
 ```
 
-Connect to send messages for consumption:
+Connect to the broker and send messages for consumption:
 
 ```
 docker-compose -f docker-compose-full.yaml exec --interactive --tty broker kafka-console-producer --bootstrap-server broker:9092 --topic demo

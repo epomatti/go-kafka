@@ -18,7 +18,7 @@ Create the `demo` topic:
 docker exec broker kafka-topics --bootstrap-server broker:9092 --create --topic demo
 ```
 
-Start the consumer:
+Start the Go consumer:
 
 ```
 go mod tidy

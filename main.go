@@ -55,16 +55,14 @@ func main() {
 	}
 
 	c.Close()
-
 }
 
 func getHost() string {
-	const HOST_ENV = "BROKER_HOST"
-	host := os.Getenv(HOST_ENV)
+	const KAFKA_BROKER_SERV = "KAFKA_BROKER_SERV"
+	host := os.Getenv(KAFKA_BROKER_SERV)
 	if len(host) == 0 {
-		host = "localhost"
+		host = "localhost:9092"
 	}
-	serv := fmt.Sprintf("%v:9092", host)
-	log.Printf("Consumer connecting to Kafka broker at [%v]", serv)
-	return serv
+	log.Printf("Consumer connecting to Kafka broker at [%v]", host)
+	return host
 }

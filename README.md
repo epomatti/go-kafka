@@ -40,6 +40,12 @@ docker-compose -f docker-compose-full.yaml build
 docker-compose -f docker-compose-full.yaml up
 ```
 
+Create the Kafka topic:
+
+```
+docker-compose -f docker-compose-full.yaml exec broker kafka-topics --bootstrap-server broker:9092 --create --topic demo
+```
+
 Connect to the broker and send messages for consumption:
 
 ```

@@ -2,7 +2,7 @@
 
 This demo runs with a statically compiled Go application using the Kafka SDK.
 
-### Local consumer
+## Running locally
 
 Start Kafka:
 
@@ -28,7 +28,7 @@ Use the CLI producer to send inline events to Kafka:
 docker exec --interactive --tty broker kafka-console-producer --bootstrap-server broker:9092 --topic demo
 ```
 
-### Docker consumer
+## Running on Docker
 
 Run your Go consumer with docker:
 

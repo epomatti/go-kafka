@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"os/signal"
 	"syscall"
@@ -12,8 +13,10 @@ import (
 
 func main() {
 
+	serv := getHost()
+
 	c, err := kafka.NewConsumer(&kafka.ConfigMap{
-		"bootstrap.servers": "broker:9092",
+		"bootstrap.servers": serv,
 		"group.id":          "foo",
 		"auto.offset.reset": "earliest"})
 
@@ -53,4 +56,15 @@ func main() {
 
 	c.Close()
 
+}
+
+func getHost() string {
+	const HOST_ENV = "BROKER_HOST"
+	host := os.Getenv(HOST_ENV)
+	if len(host) == 0 {
+		host = "localhost"
+	}
+	serv := fmt.Sprintf("%v:9092", host)
+	log.Printf("Consumer connecting to Kafka broker at [%v]", serv)
+	return serv
 }

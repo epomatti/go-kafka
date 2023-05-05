@@ -1,5 +1,7 @@
 # Go Kafka demo
 
+This demo runs with a statically compiled Go application using the Kafka SDK.
+
 ### Local consumer
 
 Start Kafka:

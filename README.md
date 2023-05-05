@@ -31,6 +31,7 @@ docker exec --interactive --tty broker kafka-console-producer --bootstrap-server
 Run your Go consumer with docker:
 
 ```
+docker-compose -f docker-compose-full.yaml build
 docker-compose -f docker-compose-full.yaml up
 ```
 

@@ -4,7 +4,7 @@ WORKDIR /app
 COPY . .
 RUN go mod download
 
-RUN go build -tags musl -installsuffix cgo -ldflags '-extldflags "-static"' -o /app/bin/main
+RUN go build -tags musl -ldflags '-extldflags "-static"' -o /app/bin/main
 
 FROM scratch
 WORKDIR /app

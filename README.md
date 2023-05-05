@@ -28,8 +28,14 @@ docker exec --interactive --tty broker kafka-console-producer --bootstrap-server
 
 ### Docker consumer
 
-
+Run your Go consumer with docker:
 
 ```
 docker-compose -f docker-compose-full.yaml up
+```
+
+Connect to send messages for consumption:
+
+```
+docker-compose -f docker-compose-full.yaml exec --interactive --tty broker kafka-console-producer --bootstrap-server broker:9092 --topic demo
 ```
